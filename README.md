@@ -1,8 +1,33 @@
 # babel-plugin-polyfill-env
 
-> Provides polyfills necessary for a full ES2015+ environment
+Without any configuration options, babel-plugin-polyfill-env behaves exactly the same as babel-plugin-require-polyfill.
 
-See our website [@babel/polyfill](https://babeljs.io/docs/en/next/babel-polyfill.html) for more information or the [issues](https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3A%22pkg%3A%20polyfill%22+is%3Aopen) associated with this package.
+> However, we don't recommend using `polyfill-env` this way because it doesn't take advantage of it's greater capabilities of targeting specific browsers.
+
+```json
+{
+  "plugins": ["polyfill-env"]
+}
+```
+
+You can also configure it to only include the polyfill needed for the browsers you support. Compiling only what's needed can make your bundles smaller and your life easier.
+
+This example only includes the polyfills needed for coverage of users > 0.25%, ignoring Internet Explorer 11 and Opera Mini.. We use [browserslist](https://github.com/ai/browserslist) to parse this information, so you can use [any valid query format supported by browserslist](https://github.com/ai/browserslist#queries).
+
+```js
+{
+  "plugins": [
+    ["polyfill-env", {
+      "targets": {
+        // The % refers to the global coverage of users from browserslist
+        "browsers": [ ">0.25%", "not ie 11", "not op_mini all"]
+      }
+    }]
+  ]
+}
+```
+
+> You can also target individual versions of browsers instead of using a query with `"targets": { "chrome": "52" }`.
 
 ## Install
 
