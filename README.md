@@ -1,5 +1,7 @@
 # babel-plugin-polyfill-env
 
+[![NPM version](https://img.shields.io/npm/v/babel-plugin-polyfill-env.svg?style=flat)](https://npmjs.com/package/babel-plugin-polyfill-env) [![NPM downloads](https://img.shields.io/npm/dm/babel-plugin-polyfill-env.svg?style=flat)](https://npmjs.com/package/babel-plugin-polyfill-env)
+
 Without any configuration options, babel-plugin-polyfill-env behaves exactly the same as babel-plugin-require-polyfill.
 
 > However, we don't recommend using `polyfill-env` this way because it doesn't take advantage of it's greater capabilities of targeting specific browsers.
