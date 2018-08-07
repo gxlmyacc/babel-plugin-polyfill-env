@@ -11,12 +11,13 @@ var browserNameMap = {
   edge: "edge",
   firefox: "firefox",
   ie: "ie",
+  ios: "ios",
   ios_saf: "ios",
   safari: "safari",
 };
 function semverify (semver, version) {
   if (typeof version === "string" && semver.valid(version)) return version;
-  else if (version === undefined) version = '';
+  else if (version === undefined) return '99.99.99';
   var split = version.toString().split(".");
   while (split.length < 3) split.push(0);
   return split.join(".");
@@ -90,6 +91,7 @@ function callRegenerator (t, semver, targetOpts, blockStatements) {
     "firefox": "53",
     "safari": "10",
     "node": "6",
+    "android": "8",
     "ios": "10",
     "opera": "37",
     "electron": "1.1"
