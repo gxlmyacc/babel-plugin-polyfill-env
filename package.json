@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-polyfill-env",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "auto include babel-pollyfill for entry file, and only polyfill needed for the browsers you support",
   "author": "gxlmyacc <gxl.mymail@163.com>",
   "license": "MIT",

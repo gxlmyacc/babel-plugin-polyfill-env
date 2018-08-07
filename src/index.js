@@ -15,9 +15,8 @@ var browserNameMap = {
   safari: "safari",
 };
 function semverify (semver, version) {
-  if (typeof version === "string" && semver.valid(version)) {
-    return version;
-  }
+  if (typeof version === "string" && semver.valid(version)) return version;
+  else if (version === undefined) version = '';
   var split = version.toString().split(".");
   while (split.length < 3) split.push(0);
   return split.join(".");
@@ -27,7 +26,7 @@ function semverMin (semver, first, second) {
 };
 function getLowestVersions (semver, browsers) {
   return browsers.reduce(function (all, browser) {
-    var [browserName, browserVersion] = browser.split(" ");
+    var [browserName, browserVersion] = browser.toLowerCase().split(" ");
     var normalizedBrowserName = browserNameMap[browserName];
 
     if (!normalizedBrowserName) return all;
