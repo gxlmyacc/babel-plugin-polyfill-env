@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-polyfill-env",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "auto include babel-pollyfill for entry file, and only polyfill needed for the browsers you support",
   "author": "gxlmyacc <gxl.mymail@163.com>",
   "license": "MIT",
@@ -9,13 +9,14 @@
   "keywords": [
     "babel",
     "plugin",
-    "babel-pollyfill",
+    "babel-polyfill",
     "env"
   ],
   "files": [
     "src"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "core-js": "^2.5.7",
     "regenerator-runtime": "^0.11.1",

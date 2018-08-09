@@ -91,7 +91,7 @@ function callRegenerator (t, semver, targetOpts, blockStatements) {
     "firefox": "53",
     "safari": "10",
     "node": "6",
-    "android": "8",
+    "android": "5",
     "ios": "10",
     "opera": "37",
     "electron": "1.1"
@@ -122,7 +122,8 @@ function callCoreShim (t, browsers) {
 
 function _polyfill (t, browsers) {
   return t.blockStatement(callCoreShim(t, browsers).concat([
-    t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('global'), t.identifier('_babelPolyfill')), t.booleanLiteral(true)))
+    requireStatement(t, require.resolve('./others')),
+    t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('global'), t.identifier('_babelPolyfill')), t.booleanLiteral(true))),
   ].filter(Boolean)));
 }
 
