@@ -56,7 +56,7 @@ function getSHIMS () {
 // function callCoreShim (t, browsers) {
 //   var browserslist = require('browserslist');
 //   var builtInsList = require('babel-preset-env/data/built-ins');
-//   var semver = require('babel-preset-env/node_modules/semver');
+//   var semver = require('semver');
 //   var path = require('path');
 //   var coreJsModules = path.join(require.resolve('core-js/modules/_core'), '../');
 //   var targetOpts = getLowestVersions(semver, browserslist(browsers));
@@ -102,7 +102,8 @@ function callRegenerator (t, semver, targetOpts, blockStatements) {
 function callCoreShim (t, browsers) {
   var browserslist = require('browserslist');
   var builtInsList = require('babel-preset-env/data/built-ins');
-  var semver = require('babel-preset-env/node_modules/semver');
+  if (builtInsList) builtInsList = require('@babel/preset-env/data/built-ins');
+  var semver = require('semver');
   var path = require('path');
   var coreJsModules = 'core-js/modules/';
   var targetOpts = getLowestVersions(semver, browserslist(browsers));
